@@ -1,5 +1,6 @@
 var historial = '';
 var historial_show ='';
+
 function jugar() {
     var cantidad_juegos = parseInt(prompt("¿Cuántos juegos quieres jugar?"));
     var jugada = ['nada', 'piedra', 'papel', 'tijera']
@@ -37,15 +38,12 @@ function jugar() {
             victorias++;
         }
         else {
-            alert("Elige una opción válida");
+            historial=("Elige una opción válida");
+
         }
+
         alert(historial);
-    }
-
+        historial_show += historial + '<br>';
+    }    
+    
 }
-
-
-
-
-
-
