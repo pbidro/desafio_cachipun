@@ -1,49 +1,48 @@
-var historial = '';
-var historial_show ='';
+function jugar(){
+   
 
-function jugar() {
-    var cantidad_juegos = parseInt(prompt("¿Cuántos juegos quieres jugar?"));
-    var jugada = ['nada', 'piedra', 'papel', 'tijera']
-    var victorias = 0;
-    var derrotas = 0;
-    var empates = 0;
-    for (var i = 0; i < cantidad_juegos; i++) {
+    var juegos = parseInt(prompt("¿cuantos juegos quieres jugar?"));
+    console.log(juegos);
 
-        var jugada_usuario = jugada[parseInt(prompt("¿Qué eliges: 1-piedra, 2-papel, 3-tijera ?"))];
-        var jugada_pc = jugada[parseInt(Math.floor(Math.random() * jugada.length))];
+    for(var i = 0; i < juegos; i++){
 
-        if (jugada_usuario == jugada_pc) {
-            
-            historial=(" pc jugó " + jugada_pc + " y tu jugaste " + jugada_usuario + " ¡Empate!");
-            empates++;
-        } else if (jugada_usuario == "piedra" && jugada_pc == "papel") {
 
-            historial=("pc jugó " + jugada_pc + " y tu jugaste " + jugada_usuario + " ¡Gana la PC!");
-            derrotas++;
-        }
-        else if (jugada_usuario == "piedra" && jugada_pc == "tijera") {
-            historial=("pc jugó " + jugada_pc + " y tu jugaste " + jugada_usuario + " ¡Gana el usuario!");
-            victorias++;
-        }
-        else if (jugada_usuario == "papel" && jugada_pc == "piedra") {
-            historial=("pc jugó " + jugada_pc + " y tu jugaste " + jugada_usuario + " ¡Gana el usuario!");
-            victorias++;
-        }
-        else if (jugada_usuario == "tijera" && jugada_pc == "piedra") {
-            historial=("pc jugó " + jugada_pc + " y tu jugaste " + jugada_usuario + " ¡Gana la PC!");
-            derrotas++;
-        }
-        else if (jugada_usuario == "tijera" && jugada_pc == "papel") {
-            historial=("pc jugó " + jugada_pc + " y tu jugaste " + jugada_usuario + " ¡Gana el usuario!");
-            victorias++;
-        }
-        else {
-            historial=("Elige una opción válida");
+        var jugada = parseInt(prompt("escoje tu jugada \n 1 piedra \n 2 papel \n 3 tijera \n 4 varita mágica"));
+        console.log(jugada);
+        var pc = Math.floor(Math.random() * 3) + 1;
+        console.log(pc);
 
+        if(jugada == pc){
+            alert("pc juega lo mismo empate");
         }
+        else if(jugada == 1 && pc == 2){
+            alert("pc juega papel perdiste");
+        }
+        else if(jugada == 1 && pc == 3){
+            alert("pc juega tijera ganaste");
+        }
+        else if(jugada == 2 && pc == 1){
+            alert("pc juega piedra ganaste");
+        }
+        else if(jugada == 2 && pc == 3){
+            alert("pc juega tijera perdiste");
+        }
+        else if(jugada == 3 && pc == 1){
+            alert("pd juega piedra perdiste");
+        }
+        else if(jugada == 3 && pc == 2){
+            alert("pc juega papel ganaste");
+        }
+        else if(jugada == 4 ){
+            alert("VARITA MÁGICA GANA TODO");
+        }
+        else{
+            alert("no es una jugada valida");
+        }
+        
+    }
 
-        alert(historial);
-        historial_show += historial + '<br>';
-    }    
+    
+
     
 }
